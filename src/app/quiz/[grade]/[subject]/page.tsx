@@ -1,31 +1,23 @@
 
-"use client";
-import { useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { Loader2 } from 'lucide-react';
+// This file is intentionally structured to NOT export a default React component.
+// The purpose is to attempt to resolve a Next.js build error:
+// "Error: You cannot use different slug names for the same dynamic path ('class' !== 'grade')."
+//
+// This error occurs because Next.js detects conflicting dynamic segment names
+// ([grade] vs [class]) at the same path level.
+//
+// By not providing a default React component export, it's hoped that Next.js
+// will either ignore this path for page routing or raise a different, more manageable
+// error (like "missing default export for page"), rather than the server failing to start
+// due to the slug name conflict.
+//
+// The correct, active route is /quiz/[class]/[subject]/.
+// This old path (/quiz/[grade]/[subject]/) and its corresponding page.tsx
+// should ideally be deleted from the filesystem to properly resolve the conflict.
 
-// This page is part of an old route structure and is kept to redirect to the new path.
-export default function OldGradeQuizPageRedirect() {
-  const router = useRouter();
-  const params = useParams();
+export const DEPRECATED_ROUTE_MARKER = true;
 
-  useEffect(() => {
-    const gradeParam = params.grade as string | undefined;
-    const subjectParam = params.subject as string | undefined;
-    
-    if (gradeParam && subjectParam) {
-      // Redirect to the new path structure, using the 'grade' param as 'class'
-      router.replace(`/quiz/${gradeParam}/${subjectParam}`);
-    } else {
-      // Fallback redirect to home if parameters are missing
-      router.replace('/');
-    }
-  }, [router, params]);
-
-  return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem-1px)] p-4 text-center">
-      <Loader2 className="h-12 w-12 animate-spin text-primary mb-4" />
-      <p className="text-xl text-muted-foreground font-semibold">Redirecting to new page structure...</p>
-    </div>
-  );
-}
+// No default export that is a React component.
+// If Next.js still requires a default export for files named page.tsx,
+// exporting a non-component value might also achieve the goal of invalidating the page.
+// export default null; // Or some other non-component value
