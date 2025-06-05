@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState, useCallback } from 'react';
@@ -32,22 +33,38 @@ export default function QuizPage() {
 
   const loadQuizQuestions = useCallback(() => {
     setIsLoading(true);
+    // Reset states for retry or new quiz
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedOption(null);
+    setAnswerStatus(null);
+    setIsModalOpen(false);
+    setIsAnswered(false);
+    setQuestions([]); // Clear previous questions
+
     if (grade && subject) {
-      const fetchedQuestions = getQuestions(grade, subject);
+      let fetchedQuestions = getQuestions(grade, subject); // Gets unshuffled questions
+
       if (fetchedQuestions.length === 0) {
         toast({
           title: "No Questions",
           description: `Sorry, no questions found for Grade ${grade} in ${subject}. Please try other options.`,
           variant: "destructive",
         });
-        router.push('/'); // Redirect if no questions
+        router.push('/'); 
+        setIsLoading(false);
         return;
       }
-      // Shuffle options for each question (optional enhancement)
+      
+      // 1. Shuffle the order of questions (client-side)
+      fetchedQuestions = [...fetchedQuestions].sort(() => Math.random() - 0.5);
+
+      // 2. Shuffle options for each question (client-side)
       const questionsWithShuffledOptions = fetchedQuestions.map(q => ({
         ...q,
         options: [...q.options].sort(() => Math.random() - 0.5)
       }));
+      
       setQuestions(questionsWithShuffledOptions);
 
     } else {
@@ -57,13 +74,10 @@ export default function QuizPage() {
           variant: "destructive",
         });
       router.push('/');
+      // No explicit setIsLoading(false) here as router.push('/') will unmount or re-route.
+      // However, to be safe, especially if routing is cancelled or fails:
+      setIsLoading(false);
     }
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setSelectedOption(null);
-    setAnswerStatus(null);
-    setIsModalOpen(false);
-    setIsAnswered(false);
     setIsLoading(false);
   }, [grade, subject, router, toast]);
 
@@ -73,7 +87,7 @@ export default function QuizPage() {
 
 
   const handleAnswerSelect = (option: string) => {
-    if (isAnswered) return; // Prevent multiple answers
+    if (isAnswered) return; 
 
     setSelectedOption(option);
     setIsAnswered(true);
@@ -115,8 +129,7 @@ export default function QuizPage() {
     );
   }
   
-  if (!questions.length && !isLoading) {
-     // This case should ideally be caught by loadQuizQuestions redirect, but as a fallback:
+  if (!questions.length && !isLoading) { 
     return (
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem-1px)] p-4 text-center">
         <AlertTriangle className="h-12 w-12 text-destructive mb-4" />
@@ -130,7 +143,6 @@ export default function QuizPage() {
       </div>
     );
   }
-
 
   const currentQuestion = questions[currentQuestionIndex];
   const progressPercentage = questions.length > 0 ? ((currentQuestionIndex + 1) / questions.length) * 100 : 0;

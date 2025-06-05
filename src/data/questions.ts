@@ -1,4 +1,5 @@
-import type { AllQuestions } from '@/lib/types';
+
+import type { Question, AllQuestions, GradeLevel, SubjectName } from '@/lib/types';
 
 // Using a smaller set of questions for demo purposes.
 // The application is designed to handle up to 30 questions per subject/grade.
@@ -46,10 +47,10 @@ export const getQuestions = (grade: GradeLevel, subject: SubjectName): Question[
   if (gradeQuestions) {
     const subjectQuestions = gradeQuestions[subject];
     if (subjectQuestions) {
-      // Shuffle questions (optional enhancement, basic shuffle)
-      const shuffled = [...subjectQuestions].sort(() => Math.random() - 0.5);
-      // For demo, use all available. If more than 30, slice.
-      return shuffled.slice(0, 30);
+      // Return questions directly, no shuffling of question order here.
+      // Shuffling will be handled client-side.
+      // Slice to ensure we don't mutate original and to adhere to max 30.
+      return [...subjectQuestions].slice(0, 30);
     }
   }
   return []; // Return empty array if no questions found
