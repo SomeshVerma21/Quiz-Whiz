@@ -1,23 +1,24 @@
+
 "use client";
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import type { GradeLevel, SubjectName } from '@/lib/types';
-import { gradeLevels } from '@/lib/types';
-import { GradeSelector } from '@/components/quiz/GradeSelector';
+import type { ClassLevel, SubjectName } from '@/lib/types';
+import { classLevels } from '@/lib/types';
+import { ClassSelector } from '@/components/quiz/ClassSelector';
 import { SubjectSelector } from '@/components/quiz/SubjectSelector';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Rocket } from 'lucide-react';
 
 export default function SelectionPage() {
-  const [selectedGrade, setSelectedGrade] = useState<GradeLevel | undefined>(undefined);
+  const [selectedClass, setSelectedClass] = useState<ClassLevel | undefined>(undefined);
   const [selectedSubject, setSelectedSubject] = useState<SubjectName | undefined>(undefined);
   const router = useRouter();
 
   const handleStartQuiz = () => {
-    if (selectedGrade && selectedSubject) {
-      router.push(`/quiz/${selectedGrade}/${selectedSubject}`);
+    if (selectedClass && selectedSubject) {
+      router.push(`/quiz/${selectedClass}/${selectedSubject}`);
     }
   };
 
@@ -27,14 +28,14 @@ export default function SelectionPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-headline tracking-tight text-primary">Welcome to Quiz Whiz!</CardTitle>
           <CardDescription className="text-md text-muted-foreground pt-2">
-            Select your grade and a subject to start learning in a fun way.
+            Select your class and a subject to start learning in a fun way.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 p-6">
-          <GradeSelector
-            selectedGrade={selectedGrade}
-            onGradeChange={setSelectedGrade}
-            grades={gradeLevels}
+          <ClassSelector
+            selectedClass={selectedClass}
+            onClassChange={setSelectedClass}
+            classes={classLevels}
           />
           <SubjectSelector
             selectedSubject={selectedSubject}
@@ -44,7 +45,7 @@ export default function SelectionPage() {
         <CardFooter className="p-6">
           <Button
             onClick={handleStartQuiz}
-            disabled={!selectedGrade || !selectedSubject}
+            disabled={!selectedClass || !selectedSubject}
             className="w-full text-lg py-6"
             size="lg"
           >

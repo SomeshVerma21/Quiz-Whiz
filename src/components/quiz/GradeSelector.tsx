@@ -1,40 +1,19 @@
+
 "use client";
 
-import type { GradeLevel } from '@/lib/types';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import React from 'react';
 import { Label } from "@/components/ui/label";
 
-interface GradeSelectorProps {
-  selectedGrade: GradeLevel | undefined;
-  onGradeChange: (grade: GradeLevel) => void;
-  grades: GradeLevel[];
-}
-
-export function GradeSelector({ selectedGrade, onGradeChange, grades }: GradeSelectorProps) {
+// This component is deprecated and has been replaced by ClassSelector.
+// It is kept minimal here to prevent build errors that might arise from
+// previous dependencies on types (like GradeLevel) that have been removed or renamed.
+export function GradeSelector() {
   return (
-    <div className="space-y-2">
-      <Label htmlFor="grade-select" className="text-lg font-medium">Select Grade</Label>
-      <Select
-        value={selectedGrade?.toString()}
-        onValueChange={(value) => onGradeChange(Number(value) as GradeLevel)}
-      >
-        <SelectTrigger id="grade-select" className="w-full text-base py-6">
-          <SelectValue placeholder="Choose a grade..." />
-        </SelectTrigger>
-        <SelectContent>
-          {grades.map((grade) => (
-            <SelectItem key={grade} value={grade.toString()} className="text-base py-2">
-              Grade {grade}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+    <div className="space-y-2 p-4 border border-dashed rounded-md bg-muted/50">
+      <Label htmlFor="deprecated-grade-select" className="text-lg font-medium text-muted-foreground">Select Grade (Deprecated)</Label>
+      <p className="text-sm text-muted-foreground">
+        This grade selector is no longer in use. The application has been updated to use "Class" selection.
+      </p>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 export type Question = {
   id: string;
   q: string;
@@ -8,15 +9,18 @@ export type Question = {
 export type SubjectName = "math" | "science" | "biology";
 export const subjectNames: SubjectName[] = ["math", "science", "biology"];
 
-export type GradeLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-export const gradeLevels: GradeLevel[] = [1, 2, 3, 4, 5, 6, 7, 8];
+// Renamed from GradeLevel
+export type ClassLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+// Renamed from gradeLevels
+export const classLevels: ClassLevel[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export type QuestionsBySubject = {
-  [key in SubjectName]?: Question[]; // Optional to handle cases where a subject might not have questions for a grade
+  [key in SubjectName]?: Question[];
 };
 
 export type AllQuestions = {
-  [grade in GradeLevel]?: QuestionsBySubject; // Optional to handle cases where a grade might not have questions
+  // Updated to ClassLevel
+  [classVal in ClassLevel]?: QuestionsBySubject;
 };
 
 export type SubjectInfo = {

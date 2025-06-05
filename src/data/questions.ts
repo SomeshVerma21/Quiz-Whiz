@@ -1,8 +1,8 @@
 
-import type { Question, AllQuestions, GradeLevel, SubjectName } from '@/lib/types';
+import type { Question, AllQuestions, ClassLevel, SubjectName } from '@/lib/types';
 
 // Using a smaller set of questions for demo purposes.
-// The application is designed to handle up to 30 questions per subject/grade.
+// The application is designed to handle up to 30 questions per subject/class.
 export const questionsData: AllQuestions = {
   1: {
     math: [
@@ -30,7 +30,7 @@ export const questionsData: AllQuestions = {
       { id: 's1-1-8', q: 'What makes a kite fly?', options: ['Water', 'Fire', 'Wind', 'Soil'], answer: 'Wind' },
       { id: 's1-1-9', q: 'What season comes after summer?', options: ['Winter', 'Spring', 'Autumn', 'None'], answer: 'Autumn' },
       { id: 's1-1-10', q: 'Can we breathe underwater without help?', options: ['Yes', 'No', 'Only for a minute', 'If we try hard'], answer: 'No' },
-      { id: 's1-1-11', q: 'What is the moon visible?', options: ['Only day', 'Only night', 'Day and night', 'Never'], answer: 'Day and night' }, // Often at night, but can be seen in day
+      { id: 's1-1-11', q: 'What is the moon visible?', options: ['Only day', 'Only night', 'Day and night', 'Never'], answer: 'Day and night' },
       { id: 's1-1-12', q: 'What do bees make?', options: ['Milk', 'Honey', 'Juice', 'Bread'], answer: 'Honey' },
     ],
     biology: [
@@ -54,7 +54,7 @@ export const questionsData: AllQuestions = {
       { id: 'm1-2-2', q: 'Count by twos: 2, 4, __, 8', options: ['5', '6', '7', '3'], answer: '6' },
       { id: 'm1-2-3', q: 'What is 10 + 5?', options: ['12', '15', '18', '20'], answer: '15' },
       { id: 'm1-2-4', q: 'How many corners does a rectangle have?', options: ['3', '4', '5', '6'], answer: '4' },
-      { id: 'm1-2-5', q: 'Which is more: 1 dozen or 10 items?', options: ['1 dozen', '10 items', 'They are equal', 'Cannot tell'], answer: '1 dozen' }, // 1 dozen = 12
+      { id: 'm1-2-5', q: 'Which is more: 1 dozen or 10 items?', options: ['1 dozen', '10 items', 'They are equal', 'Cannot tell'], answer: '1 dozen' },
       { id: 'm1-2-6', q: 'What is 7 + 7?', options: ['12', '13', '14', '15'], answer: '14' },
       { id: 'm1-2-7', q: 'If you have 4 groups of 3, how many in total?', options: ['7', '10', '12', '15'], answer: '12' },
       { id: 'm1-2-8', q: 'What is 20 - 10?', options: ['5', '10', '15', '0'], answer: '10' },
@@ -70,18 +70,18 @@ export const questionsData: AllQuestions = {
       { id: 's1-2-4', q: 'What gas do humans breathe out?', options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Helium'], answer: 'Carbon Dioxide' },
       { id: 's1-2-5', q: 'What is the process of a liquid turning into a gas called?', options: ['Freezing', 'Melting', 'Evaporation', 'Condensation'], answer: 'Evaporation' },
       { id: 's1-2-6', q: 'What tool measures temperature?', options: ['Ruler', 'Scale', 'Thermometer', 'Compass'], answer: 'Thermometer' },
-      { id: 's1-2-7', q: 'Which of these is a source of light?', options: ['Moon', 'Mirror', 'Star', 'Book'], answer: 'Star' }, // Moon reflects light
+      { id: 's1-2-7', q: 'Which of these is a source of light?', options: ['Moon', 'Mirror', 'Star', 'Book'], answer: 'Star' },
       { id: 's1-2-8', q: 'What is a shadow?', options: ['A type of light', 'An area where light is blocked', 'A reflection', 'A type of heat'], answer: 'An area where light is blocked' },
       { id: 's1-2-9', q: 'What force makes a ball roll down a hill?', options: ['Push', 'Pull', 'Gravity', 'Friction'], answer: 'Gravity' },
       { id: 's1-2-10', q: 'What is the name of our galaxy?', options: ['Andromeda', 'Pinwheel', 'Milky Way', 'Sombrero'], answer: 'Milky Way' },
-      { id: 's1-2-11', q: 'How many primary colors are there in light?', options: ['Two', 'Three', 'Four', 'Five'], answer: 'Three' }, // Red, Green, Blue for additive
+      { id: 's1-2-11', q: 'How many primary colors are there in light?', options: ['Two', 'Three', 'Four', 'Five'], answer: 'Three' },
       { id: 's1-2-12', q: 'What do magnets attract?', options: ['Wood', 'Plastic', 'Iron', 'Glass'], answer: 'Iron' },
     ],
     biology: [
       { id: 'b1-2-1', q: 'What part of a plant absorbs water from the soil?', options: ['Leaves', 'Stem', 'Roots', 'Flowers'], answer: 'Roots' },
       { id: 'b1-2-2', q: 'Which of these animals is a mammal?', options: ['Frog', 'Snake', 'Whale', 'Fish'], answer: 'Whale' },
       { id: 'b1-2-3', q: 'What is the main job of leaves on a plant?', options: ['To attract bees', 'To make food (photosynthesis)', 'To hold the plant up', 'To store water'], answer: 'To make food (photosynthesis)' },
-      { id: 'b1-2-4', q: 'How many stages are in a butterfly\'s life cycle?', options: ['Two', 'Three', 'Four', 'Five'], answer: 'Four' }, // Egg, Larva, Pupa, Adult
+      { id: 'b1-2-4', q: 'How many stages are in a butterfly\'s life cycle?', options: ['Two', 'Three', 'Four', 'Five'], answer: 'Four' },
       { id: 'b1-2-5', q: 'Which human sense helps us taste food?', options: ['Sight', 'Smell', 'Touch', 'Taste (tongue)'], answer: 'Taste (tongue)' },
       { id: 'b1-2-6', q: 'What do omnivores eat?', options: ['Only plants', 'Only meat', 'Both plants and meat', 'Only insects'], answer: 'Both plants and meat' },
       { id: 'b1-2-7', q: 'Which of these is NOT a living thing?', options: ['Tree', 'Rock', 'Dog', 'Flower'], answer: 'Rock' },
@@ -90,6 +90,226 @@ export const questionsData: AllQuestions = {
       { id: 'b1-2-10', q: 'What is the process by which plants make their own food using sunlight?', options: ['Respiration', 'Digestion', 'Photosynthesis', 'Pollination'], answer: 'Photosynthesis' },
       { id: 'b1-2-11', q: 'What is the largest organ in the human body?', options: ['Brain', 'Heart', 'Lungs', 'Skin'], answer: 'Skin' },
       { id: 'b1-2-12', q: 'Which animal is known for changing its color to match its surroundings?', options: ['Lion', 'Elephant', 'Chameleon', 'Zebra'], answer: 'Chameleon' },
+    ]
+  },
+  3: {
+    math: [
+      { id: 'm3-3-1', q: 'What is 250 + 150?', options: ['300', '350', '400', '450'], answer: '400' },
+      { id: 'm3-3-2', q: 'What is 8 x 7?', options: ['48', '54', '56', '64'], answer: '56' },
+      { id: 'm3-3-3', q: 'What is 100 - 35?', options: ['55', '65', '75', '70'], answer: '65' },
+      { id: 'm3-3-4', q: 'How many minutes are in one hour?', options: ['30', '45', '60', '90'], answer: '60' },
+      { id: 'm3-3-5', q: 'What is 1/2 of 20?', options: ['5', '10', '15', '8'], answer: '10' },
+      { id: 'm3-3-6', q: 'Which shape has 5 sides?', options: ['Hexagon', 'Pentagon', 'Octagon', 'Triangle'], answer: 'Pentagon' },
+      { id: 'm3-3-7', q: 'What is 45 ÷ 5?', options: ['7', '8', '9', '10'], answer: '9' },
+      { id: 'm3-3-8', q: 'Round 78 to the nearest ten.', options: ['70', '75', '80', '90'], answer: '80' },
+      { id: 'm3-3-9', q: 'What time is 3 hours after 2 PM?', options: ['4 PM', '5 PM', '6 PM', '11 AM'], answer: '5 PM' },
+      { id: 'm3-3-10', q: 'How many days are in a week?', options: ['5', '6', '7', '8'], answer: '7' },
+      { id: 'm3-3-11', q: 'What is 30 + 30 + 30?', options: ['60', '90', '100', '120'], answer: '90' },
+      { id: 'm3-3-12', q: 'A book costs $5. How much do 3 books cost?', options: ['$10', '$12', '$15', '$20'], answer: '$15' },
+    ],
+    science: [
+      { id: 's3-3-1', q: 'What is the solid form of water?', options: ['Steam', 'Mist', 'Ice', 'Vapor'], answer: 'Ice' },
+      { id: 's3-3-2', q: 'Which of these is a simple machine?', options: ['Computer', 'Lever', 'Car', 'Telephone'], answer: 'Lever' },
+      { id: 's3-3-3', q: 'What causes day and night?', options: ['Moon orbiting Earth', 'Earth orbiting Sun', 'Earth rotating on its axis', 'Sun moving around Earth'], answer: 'Earth rotating on its axis' },
+      { id: 's3-3-4', q: 'What instrument measures wind speed?', options: ['Thermometer', 'Barometer', 'Anemometer', 'Hygrometer'], answer: 'Anemometer' },
+      { id: 's3-3-5', q: 'What state of matter is air?', options: ['Solid', 'Liquid', 'Gas', 'Plasma'], answer: 'Gas' },
+      { id: 's3-3-6', q: 'What do plants release that humans breathe in?', options: ['Carbon Dioxide', 'Nitrogen', 'Oxygen', 'Hydrogen'], answer: 'Oxygen' },
+      { id: 's3-3-7', q: 'What is a force that pulls objects together?', options: ['Friction', 'Magnetism', 'Gravity', 'Tension'], answer: 'Gravity' },
+      { id: 's3-3-8', q: 'Which of these is a renewable energy source?', options: ['Coal', 'Natural Gas', 'Oil', 'Sunlight'], answer: 'Sunlight' },
+      { id: 's3-3-9', q: 'What are clouds made of?', options: ['Smoke', 'Dust', 'Water droplets or ice crystals', 'Air only'], answer: 'Water droplets or ice crystals' },
+      { id: 's3-3-10', q: 'What is the center of our solar system?', options: ['Earth', 'Moon', 'Sun', 'Mars'], answer: 'Sun' },
+      { id: 's3-3-11', q: 'Which of these is a conductor of electricity?', options: ['Rubber', 'Wood', 'Copper', 'Plastic'], answer: 'Copper' },
+      { id: 's3-3-12', q: 'What tool helps us see very small things?', options: ['Telescope', 'Binoculars', 'Microscope', 'Magnifying glass'], answer: 'Microscope' },
+    ],
+    biology: [
+      { id: 'b3-3-1', q: 'What part of a plant makes seeds?', options: ['Root', 'Stem', 'Leaf', 'Flower'], answer: 'Flower' },
+      { id: 'b3-3-2', q: 'Where does a frog start its life?', options: ['In a nest', 'In water as a tadpole', 'Underground', 'On land as a small frog'], answer: 'In water as a tadpole' },
+      { id: 'b3-3-3', q: 'What is a habitat?', options: ['An animal\'s food', 'An animal\'s friend', 'An animal\'s home environment', 'An animal\'s enemy'], answer: 'An animal\'s home environment' },
+      { id: 'b3-3-4', q: 'Which of these animals is an insect?', options: ['Spider', 'Worm', 'Ant', 'Snail'], answer: 'Ant' }, // Spiders are arachnids
+      { id: 'b3-3-5', q: 'What do our bones help us do?', options: ['Digest food', 'Breathe', 'Support our body and move', 'Pump blood'], answer: 'Support our body and move' },
+      { id: 'b3-3-6', q: 'Which part of your body helps you to smell?', options: ['Ears', 'Eyes', 'Tongue', 'Nose'], answer: 'Nose' },
+      { id: 'b3-3-7', q: 'What is the young of a sheep called?', options: ['Calf', 'Lamb', 'Foal', 'Kid'], answer: 'Lamb' },
+      { id: 'b3-3-8', q: 'What is the main source of energy for most life on Earth?', options: ['Moon', 'Water', 'Soil', 'Sun'], answer: 'Sun' },
+      { id: 'b3-3-9', q: 'Which of these is a producer in a food chain?', options: ['Lion', 'Grass', 'Rabbit', 'Fox'], answer: 'Grass' },
+      { id: 'b3-3-10', q: 'What do you call an animal that only eats plants?', options: ['Carnivore', 'Omnivore', 'Herbivore', 'Insectivore'], answer: 'Herbivore' },
+      { id: 'b3-3-11', q: 'How many legs does a spider have?', options: ['4', '6', '8', '10'], answer: '8' },
+      { id: 'b3-3-12', q: 'What do trees produce that helps us breathe?', options: ['Carbon Dioxide', 'Oxygen', 'Nitrogen', 'Pollen'], answer: 'Oxygen' },
+    ]
+  },
+  4: {
+    math: [
+      { id: 'm4-4-1', q: 'What is 3/4 + 1/4?', options: ['1/2', '1', '4/8', '3/8'], answer: '1' },
+      { id: 'm4-4-2', q: 'What is 15 x 10?', options: ['1500', '150', '25', '1.5'], answer: '150' },
+      { id: 'm4-4-3', q: 'What is the perimeter of a square with a side length of 5 cm?', options: ['10 cm', '15 cm', '20 cm', '25 cm'], answer: '20 cm' },
+      { id: 'm4-4-4', q: 'Convert 0.5 to a fraction.', options: ['1/5', '1/2', '1/4', '5/100'], answer: '1/2' },
+      { id: 'm4-4-5', q: 'How many milliliters are in 1 liter?', options: ['10', '100', '1000', '10000'], answer: '1000' },
+      { id: 'm4-4-6', q: 'If a pizza is cut into 8 slices and you eat 3, what fraction is left?', options: ['3/8', '5/8', '1/2', '8/5'], answer: '5/8' },
+      { id: 'm4-4-7', q: 'What is 72 ÷ 9?', options: ['6', '7', '8', '9'], answer: '8' },
+      { id: 'm4-4-8', q: 'Which angle is greater than 90 degrees?', options: ['Acute', 'Right', 'Obtuse', 'Straight'], answer: 'Obtuse' },
+      { id: 'm4-4-9', q: 'What is the area of a rectangle with length 6m and width 4m?', options: ['10 m²', '20 m²', '24 m²', '12 m²'], answer: '24 m²' },
+      { id: 'm4-4-10', q: 'What is 2005 - 1998?', options: ['5', '6', '7', '8'], answer: '7' },
+      { id: 'm4-4-11', q: 'How many sides does a hexagon have?', options: ['5', '6', '7', '8'], answer: '6' },
+      { id: 'm4-4-12', q: 'What is the next number in the sequence: 3, 6, 9, 12, __?', options: ['13', '14', '15', '16'], answer: '15' },
+    ],
+    science: [
+      { id: 's4-4-1', q: 'What form of energy is stored in batteries?', options: ['Kinetic', 'Potential', 'Chemical', 'Thermal'], answer: 'Chemical' },
+      { id: 's4-4-2', q: 'What is the name of the force that opposes motion when two surfaces rub together?', options: ['Gravity', 'Magnetism', 'Friction', 'Tension'], answer: 'Friction' },
+      { id: 's4-4-3', q: 'Which planet is known as the "Morning Star" or "Evening Star"?', options: ['Mars', 'Venus', 'Jupiter', 'Mercury'], answer: 'Venus' },
+      { id: 's4-4-4', q: 'What is the process of water changing from a liquid to a gas called?', options: ['Condensation', 'Evaporation', 'Freezing', 'Melting'], answer: 'Evaporation' },
+      { id: 's4-4-5', q: 'What type of rock is formed from cooled lava or magma?', options: ['Sedimentary', 'Metamorphic', 'Igneous', 'Fossilized'], answer: 'Igneous' },
+      { id: 's4-4-6', q: 'What is the path an object takes as it revolves around another object in space?', options: ['Axis', 'Orbit', 'Rotation', 'Trajectory'], answer: 'Orbit' },
+      { id: 's4-4-7', q: 'Which of these materials is a good insulator of electricity?', options: ['Copper', 'Silver', 'Rubber', 'Aluminum'], answer: 'Rubber' },
+      { id: 's4-4-8', q: 'What is the main gas that plants use for photosynthesis?', options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'], answer: 'Carbon Dioxide' },
+      { id: 's4-4-9', q: 'What is a natural satellite of Earth?', options: ['Sun', 'Mars', 'Moon', 'Star'], answer: 'Moon' },
+      { id: 's4-4-10', q: 'What is the breaking down of rocks into smaller pieces called?', options: ['Erosion', 'Weathering', 'Deposition', 'Compaction'], answer: 'Weathering' },
+      { id: 's4-4-11', q: 'What is the term for the flow of electric charge?', options: ['Voltage', 'Resistance', 'Current', 'Power'], answer: 'Current' },
+      { id: 's4-4-12', q: 'What is the preserved remains or traces of an ancient organism called?', options: ['Mineral', 'Rock', 'Fossil', 'Sediment'], answer: 'Fossil' },
+    ],
+    biology: [
+      { id: 'b4-4-1', q: 'What is the process by which plants make their own food called?', options: ['Respiration', 'Digestion', 'Photosynthesis', 'Pollination'], answer: 'Photosynthesis' },
+      { id: 'b4-4-2', q: 'Which part of a flower produces pollen?', options: ['Petal', 'Sepal', 'Stamen', 'Pistil'], answer: 'Stamen' },
+      { id: 'b4-4-3', q: 'What is the system in the human body that transports blood?', options: ['Respiratory', 'Digestive', 'Nervous', 'Circulatory'], answer: 'Circulatory' },
+      { id: 'b4-4-4', q: 'Which of these animals is a reptile?', options: ['Frog', 'Snake', 'Bird', 'Fish'], answer: 'Snake' },
+      { id: 'b4-4-5', q: 'What is the backbone also known as?', options: ['Rib cage', 'Skull', 'Spinal column', 'Pelvis'], answer: 'Spinal column' },
+      { id: 'b4-4-6', q: 'What do you call an animal that hunts other animals for food?', options: ['Prey', 'Predator', 'Herbivore', 'Producer'], answer: 'Predator' },
+      { id: 'b4-4-7', q: 'What is the role of the roots of a plant?', options: ['Make food', 'Attract insects', 'Absorb water and nutrients', 'Produce seeds'], answer: 'Absorb water and nutrients' },
+      { id: 'b4-4-8', q: 'Which of these is NOT a sense organ?', options: ['Eyes', 'Ears', 'Lungs', 'Skin'], answer: 'Lungs' },
+      { id: 'b4-4-9', q: 'What is an ecosystem?', options: ['A single animal', 'A type of plant', 'All living and non-living things in an area', 'A large rock'], answer: 'All living and non-living things in an area' },
+      { id: 'b4-4-10', q: 'What is the young of a frog called?', options: ['Larva', 'Nymph', 'Tadpole', 'Fry'], answer: 'Tadpole' },
+      { id: 'b4-4-11', q: 'Which part of the human body controls thoughts and actions?', options: ['Heart', 'Lungs', 'Stomach', 'Brain'], answer: 'Brain' },
+      { id: 'b4-4-12', q: 'What is camouflage?', options: ['A type of food', 'An animal\'s ability to blend in with its surroundings', 'A type of bird song', 'A plant\'s flower'], answer: 'An animal\'s ability to blend in with its surroundings' },
+    ]
+  },
+  5: {
+    math: [
+      { id: 'm5-5-1', q: 'What is 2.5 + 1.75?', options: ['3.25', '4.00', '4.25', '3.75'], answer: '4.25' },
+      { id: 'm5-5-2', q: 'What is 50% of 120?', options: ['50', '60', '70', '24'], answer: '60' },
+      { id: 'm5-5-3', q: 'What is the volume of a cube with side length 3 cm?', options: ['9 cm³', '12 cm³', '18 cm³', '27 cm³'], answer: '27 cm³' },
+      { id: 'm5-5-4', q: 'Simplify the fraction 15/25.', options: ['1/2', '3/5', '5/3', '2/3'], answer: '3/5' },
+      { id: 'm5-5-5', q: 'If a recipe calls for 2 cups of flour and you want to make half, how much flour do you need?', options: ['1/2 cup', '1 cup', '1.5 cups', '2/3 cup'], answer: '1 cup' },
+      { id: 'm5-5-6', q: 'How many degrees are in a full circle?', options: ['90°', '180°', '270°', '360°'], answer: '360°' },
+      { id: 'm5-5-7', q: 'What is 0.25 as a percentage?', options: ['2.5%', '25%', '0.025%', '250%'], answer: '25%' },
+      { id: 'm5-5-8', q: 'Find the average of these numbers: 10, 20, 30.', options: ['15', '20', '25', '60'], answer: '20' },
+      { id: 'm5-5-9', q: 'What is 1/3 of 21?', options: ['6', '7', '8', '9'], answer: '7' },
+      { id: 'm5-5-10', q: 'If a movie starts at 6:45 PM and lasts 1 hour 30 minutes, when does it end?', options: ['7:15 PM', '8:00 PM', '8:15 PM', '8:30 PM'], answer: '8:15 PM' },
+      { id: 'm5-5-11', q: 'Which is larger: 0.7 or 0.07?', options: ['0.7', '0.07', 'They are equal', 'Cannot tell'], answer: '0.7' },
+      { id: 'm5-5-12', q: 'What is the product of 12 and 12?', options: ['24', '122', '144', '169'], answer: '144' },
+    ],
+    science: [
+      { id: 's5-5-1', q: 'What is the force that pulls objects towards the center of the Earth?', options: ['Magnetism', 'Friction', 'Gravity', 'Buoyancy'], answer: 'Gravity' },
+      { id: 's5-5-2', q: 'What is the process of a gas changing into a liquid called?', options: ['Evaporation', 'Condensation', 'Sublimation', 'Melting'], answer: 'Condensation' },
+      { id: 's5-5-3', q: 'Which planet is closest to the Sun?', options: ['Venus', 'Earth', 'Mars', 'Mercury'], answer: 'Mercury' },
+      { id: 's5-5-4', q: 'What are the three primary colors of light?', options: ['Red, Yellow, Blue', 'Red, Green, Blue', 'Cyan, Magenta, Yellow', 'Orange, Green, Violet'], answer: 'Red, Green, Blue' },
+      { id: 's5-5-5', q: 'What is the chemical symbol for water?', options: ['O2', 'CO2', 'H2O', 'NaCl'], answer: 'H2O' },
+      { id: 's5-5-6', q: 'What type of energy is produced by vibrating objects?', options: ['Light energy', 'Sound energy', 'Heat energy', 'Electrical energy'], answer: 'Sound energy' },
+      { id: 's5-5-7', q: 'What is the Earth\'s outermost layer called?', options: ['Mantle', 'Core', 'Crust', 'Atmosphere'], answer: 'Crust' },
+      { id: 's5-5-8', q: 'What is a substance that dissolves in a solvent called?', options: ['Solution', 'Solute', 'Suspension', 'Mixture'], answer: 'Solute' },
+      { id: 's5-5-9', q: 'Which simple machine consists of a wheel and an axle?', options: ['Lever', 'Pulley', 'Inclined Plane', 'Wheel and Axle'], answer: 'Wheel and Axle' },
+      { id: 's5-5-10', q: 'What is the unit of measurement for force?', options: ['Watt', 'Joule', 'Newton', 'Pascal'], answer: 'Newton' },
+      { id: 's5-5-11', q: 'What is the term for a push or a pull?', options: ['Energy', 'Work', 'Force', 'Power'], answer: 'Force' },
+      { id: 's5-5-12', q: 'What instrument is used to see distant objects in space?', options: ['Microscope', 'Telescope', 'Periscope', 'Binoculars'], answer: 'Telescope' },
+    ],
+    biology: [
+      { id: 'b5-5-1', q: 'What is the basic unit of life?', options: ['Organ', 'Tissue', 'Cell', 'Molecule'], answer: 'Cell' },
+      { id: 'b5-5-2', q: 'Which gas do plants absorb from the atmosphere for photosynthesis?', options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'], answer: 'Carbon Dioxide' },
+      { id: 'b5-5-3', q: 'What is the control center of a cell called?', options: ['Mitochondria', 'Nucleus', 'Ribosome', 'Cytoplasm'], answer: 'Nucleus' },
+      { id: 'b5-5-4', q: 'Which of these is a microorganism?', options: ['Insect', 'Bacteria', 'Worm', 'Fish'], answer: 'Bacteria' },
+      { id: 'b5-5-5', q: 'What is the process of passing traits from parents to offspring called?', options: ['Adaptation', 'Evolution', 'Heredity', 'Mutation'], answer: 'Heredity' },
+      { id: 'b5-5-6', q: 'What is the role of the heart in the human body?', options: ['To digest food', 'To pump blood', 'To filter waste', 'To control thoughts'], answer: 'To pump blood' },
+      { id: 'b5-5-7', q: 'Which part of a plant is primarily responsible for absorbing sunlight for photosynthesis?', options: ['Roots', 'Stem', 'Leaves', 'Flowers'], answer: 'Leaves' },
+      { id: 'b5-5-8', q: 'What type of organism breaks down dead plants and animals?', options: ['Producer', 'Consumer', 'Decomposer', 'Herbivore'], answer: 'Decomposer' },
+      { id: 'b5-5-9', q: 'What is the largest organ in the human body?', options: ['Liver', 'Brain', 'Lungs', 'Skin'], answer: 'Skin' },
+      { id: 'b5-5-10', q: 'Which system helps the body get rid of waste products?', options: ['Circulatory system', 'Respiratory system', 'Digestive system', 'Excretory system'], answer: 'Excretory system' },
+      { id: 'b5-5-11', q: 'What is a vertebrate?', options: ['An animal with an exoskeleton', 'An animal with a backbone', 'An animal that lives in water', 'An animal that can fly'], answer: 'An animal with a backbone' },
+      { id: 'b5-5-12', q: 'What is pollination?', options: ['The process of seeds growing', 'The transfer of pollen from stamen to pistil', 'How plants absorb water', 'How animals find food'], answer: 'The transfer of pollen from stamen to pistil' },
+    ]
+  },
+  6: {
+    math: [
+      { id: 'm6-6-1', q: 'What is the ratio of 3 boys to 5 girls?', options: ['5:3', '3:5', '3:8', '8:3'], answer: '3:5' },
+      { id: 'm6-6-2', q: 'Solve for x: x + 7 = 15', options: ['7', '8', '9', '22'], answer: '8' },
+      { id: 'm6-6-3', q: 'What is -5 + 3?', options: ['-8', '-2', '2', '8'], answer: '-2' },
+      { id: 'm6-6-4', q: 'What is the area of a triangle with base 10cm and height 6cm?', options: ['16 cm²', '30 cm²', '60 cm²', '15 cm²'], answer: '30 cm²' },
+      { id: 'm6-6-5', q: 'Convert 2/5 to a decimal.', options: ['0.2', '0.25', '0.4', '0.5'], answer: '0.4' },
+      { id: 'm6-6-6', q: 'If a map scale is 1cm : 10km, how many km does 5cm represent?', options: ['5 km', '10 km', '25 km', '50 km'], answer: '50 km' },
+      { id: 'm6-6-7', q: 'What is 15% of 200?', options: ['15', '20', '30', '40'], answer: '30' },
+      { id: 'm6-6-8', q: 'What are the coordinates of a point in the second quadrant?', options: ['(+,+)', '(+,-)', '(-,+)', '(-,-)'], answer: '(-,+)' },
+      { id: 'm6-6-9', q: 'Simplify the expression: 3x + 2y - x + 3y', options: ['2x + 5y', '4x + y', '3x + 5y', '2x - y'], answer: '2x + 5y' },
+      { id: 'm6-6-10', q: 'What is the value of 2³?', options: ['5', '6', '8', '9'], answer: '8' },
+      { id: 'm6-6-11', q: 'The sum of angles in a triangle is always:', options: ['90°', '180°', '270°', '360°'], answer: '180°' },
+      { id: 'm6-6-12', q: 'What is the probability of flipping a coin and getting heads?', options: ['0', '1/4', '1/2', '1'], answer: '1/2' },
+    ],
+    science: [
+      { id: 's6-6-1', q: 'What is the smallest particle of an element that retains the properties of that element?', options: ['Molecule', 'Compound', 'Atom', 'Electron'], answer: 'Atom' },
+      { id: 's6-6-2', q: 'What is the Earth\'s primary source of energy?', options: ['Moon', 'Geothermal heat', 'Fossil fuels', 'Sun'], answer: 'Sun' },
+      { id: 's6-6-3', q: 'Which layer of the Earth is between the crust and the core?', options: ['Atmosphere', 'Lithosphere', 'Mantle', 'Hydrosphere'], answer: 'Mantle' },
+      { id: 's6-6-4', q: 'What is the process by which water vapor changes directly to ice, bypassing the liquid state?', options: ['Condensation', 'Evaporation', 'Sublimation', 'Deposition'], answer: 'Deposition' },
+      { id: 's6-6-5', q: 'What type of energy is associated with motion?', options: ['Potential energy', 'Kinetic energy', 'Chemical energy', 'Thermal energy'], answer: 'Kinetic energy' },
+      { id: 's6-6-6', q: 'What is the chemical symbol for oxygen?', options: ['O', 'Ox', 'Oy', 'O2'], answer: 'O' }, // O2 is molecular oxygen
+      { id: 's6-6-7', q: 'Which of these is a non-renewable resource?', options: ['Solar power', 'Wind power', 'Coal', 'Water power'], answer: 'Coal' },
+      { id: 's6-6-8', q: 'What is the measure of the amount of matter in an object?', options: ['Weight', 'Volume', 'Density', 'Mass'], answer: 'Mass' },
+      { id: 's6-6-9', q: 'What force keeps planets in orbit around the Sun?', options: ['Magnetism', 'Friction', 'Gravity', 'Nuclear force'], answer: 'Gravity' },
+      { id: 's6-6-10', q: 'What is the common name for Sodium Chloride (NaCl)?', options: ['Sugar', 'Baking soda', 'Vinegar', 'Table salt'], answer: 'Table salt' },
+      { id: 's6-6-11', q: 'What type of wave is sound?', options: ['Transverse wave', 'Electromagnetic wave', 'Longitudinal wave', 'Surface wave'], answer: 'Longitudinal wave' },
+      { id: 's6-6-12', q: 'What instrument is used to measure atmospheric pressure?', options: ['Thermometer', 'Anemometer', 'Barometer', 'Hygrometer'], answer: 'Barometer' },
+    ],
+    biology: [
+      { id: 'b6-6-1', q: 'What are the structures inside cells that contain genetic information (DNA)?', options: ['Mitochondria', 'Ribosomes', 'Chromosomes', 'Vacuoles'], answer: 'Chromosomes' },
+      { id: 'b6-6-2', q: 'What is the system that breaks down food into nutrients the body can use?', options: ['Respiratory System', 'Circulatory System', 'Digestive System', 'Nervous System'], answer: 'Digestive System' },
+      { id: 'b6-6-3', q: 'Which kingdom do single-celled organisms like amoeba and paramecium belong to?', options: ['Fungi', 'Plantae', 'Animalia', 'Protista'], answer: 'Protista' },
+      { id: 'b6-6-4', q: 'What is the green pigment in plants that captures light energy for photosynthesis?', options: ['Hemoglobin', 'Melanin', 'Chlorophyll', 'Carotene'], answer: 'Chlorophyll' },
+      { id: 'b6-6-5', q: 'What is an organism that eats both plants and animals called?', options: ['Herbivore', 'Carnivore', 'Omnivore', 'Producer'], answer: 'Omnivore' },
+      { id: 'b6-6-6', q: 'What is the process by which organisms best suited to their environment survive and reproduce?', options: ['Adaptation', 'Mutation', 'Natural Selection', 'Extinction'], answer: 'Natural Selection' },
+      { id: 'b6-6-7', q: 'Which part of the flower develops into a fruit after fertilization?', options: ['Petal', 'Stamen', 'Sepal', 'Ovary'], answer: 'Ovary' },
+      { id: 'b6-6-8', q: 'What are tiny blood vessels that connect arteries and veins?', options: ['Alveoli', 'Capillaries', 'Bronchioles', 'Neurons'], answer: 'Capillaries' },
+      { id: 'b6-6-9', q: 'What is the scientific study of plants called?', options: ['Zoology', 'Botany', 'Ecology', 'Genetics'], answer: 'Botany' },
+      { id: 'b6-6-10', q: 'What is the term for all the interacting populations in a particular area?', options: ['Ecosystem', 'Habitat', 'Community', 'Biosphere'], answer: 'Community' },
+      { id: 'b6-6-11', q: 'Which human organ is primarily responsible for filtering blood and producing urine?', options: ['Liver', 'Lungs', 'Kidneys', 'Stomach'], answer: 'Kidneys' },
+      { id: 'b6-6-12', q: 'What is the name of the long tube that carries food from the mouth to the stomach?', options: ['Trachea', 'Esophagus', 'Intestine', 'Bronchus'], answer: 'Esophagus' },
+    ]
+  },
+  7: {
+    math: [
+      { id: 'm7-7-1', q: 'Solve for x: 3x - 5 = 10', options: ['3', '4', '5', '6'], answer: '5' },
+      { id: 'm7-7-2', q: 'What is the circumference of a circle with radius 7cm? (Use π = 22/7)', options: ['22 cm', '44 cm', '88 cm', '154 cm'], answer: '44 cm' },
+      { id: 'm7-7-3', q: 'What is -8 x -3?', options: ['-24', '24', '-11', '11'], answer: '24' },
+      { id: 'm7-7-4', q: 'What is the probability of rolling a 6 on a standard six-sided die?', options: ['1/3', '1/6', '1/2', '1'], answer: '1/6' },
+      { id: 'm7-7-5', q: 'If a triangle has angles 50° and 70°, what is the third angle?', options: ['40°', '50°', '60°', '70°'], answer: '60°' },
+      { id: 'm7-7-6', q: 'What is 20% as a fraction in simplest form?', options: ['1/5', '2/10', '1/4', '20/100'], answer: '1/5' },
+      { id: 'm7-7-7', q: 'What is the square root of 121?', options: ['10', '11', '12', '13'], answer: '11' },
+      { id: 'm7-7-8', q: 'Simplify: (2x²) * (3x³)', options: ['5x⁵', '6x⁵', '5x⁶', '6x⁶'], answer: '6x⁵' },
+      { id: 'm7-7-9', q: 'A car travels at 60 km/h. How far does it travel in 2.5 hours?', options: ['120 km', '150 km', '180 km', '24 km'], answer: '150 km' },
+      { id: 'm7-7-10', q: 'What is the median of the numbers: 2, 5, 1, 8, 4?', options: ['1', '2', '4', '5'], answer: '4' },
+      { id: 'm7-7-11', q: 'If a² = 49, what is a (assume a > 0)?', options: ['6', '7', '8', '9'], answer: '7' },
+      { id: 'm7-7-12', q: 'Convert 0.05 to a percentage.', options: ['0.5%', '5%', '50%', '0.005%'], answer: '5%' },
+    ],
+    science: [
+      { id: 's7-7-1', q: 'What is the theory that describes the large-scale motion of Earth\'s lithosphere?', options: ['Big Bang Theory', 'Theory of Relativity', 'Plate Tectonics', 'Cell Theory'], answer: 'Plate Tectonics' },
+      { id: 's7-7-2', q: 'What is the most common element in the universe?', options: ['Oxygen', 'Carbon', 'Helium', 'Hydrogen'], answer: 'Hydrogen' },
+      { id: 's7-7-3', q: 'What type of chemical reaction absorbs heat from its surroundings?', options: ['Exothermic', 'Endothermic', 'Combustion', 'Neutralization'], answer: 'Endothermic' },
+      { id: 's7-7-4', q: 'What is Newton\'s First Law of Motion often called?', options: ['Law of Action-Reaction', 'Law of Acceleration', 'Law of Inertia', 'Law of Gravity'], answer: 'Law of Inertia' },
+      { id: 's7-7-5', q: 'What is the pH of a strong acid?', options: ['Close to 0', 'Close to 7', 'Close to 14', 'Exactly 7'], answer: 'Close to 0' },
+      { id: 's7-7-6', q: 'What is the name of the galaxy that contains our Solar System?', options: ['Andromeda', 'Triangulum', 'Whirlpool', 'Milky Way'], answer: 'Milky Way' },
+      { id: 's7-7-7', q: 'What is the unit of electrical power?', options: ['Volt', 'Ampere', 'Ohm', 'Watt'], answer: 'Watt' },
+      { id: 's7-7-8', q: 'Which part of the atom has a positive charge?', options: ['Electron', 'Neutron', 'Proton', 'Nucleus'], answer: 'Proton' },
+      { id: 's7-7-9', q: 'What is the process of a solid changing directly to a gas called?', options: ['Melting', 'Evaporation', 'Condensation', 'Sublimation'], answer: 'Sublimation' },
+      { id: 's7-7-10', q: 'What type of lens is thicker in the middle and converges light rays?', options: ['Concave lens', 'Convex lens', 'Plane lens', 'Bifocal lens'], answer: 'Convex lens' },
+      { id: 's7-7-11', q: 'What is the main component of natural gas?', options: ['Ethane', 'Propane', 'Butane', 'Methane'], answer: 'Methane' },
+      { id: 's7-7-12', q: 'What is the speed of sound in air (approximately at room temperature)?', options: ['34 m/s', '343 m/s', '3430 m/s', 'Speed of light'], answer: '343 m/s' },
+    ],
+    biology: [
+      { id: 'b7-7-1', q: 'What is the process by which organisms with favorable traits are more likely to survive and reproduce?', options: ['Genetic drift', 'Mutation', 'Artificial selection', 'Natural selection'], answer: 'Natural selection' },
+      { id: 'b7-7-2', q: 'What are the building blocks of proteins?', options: ['Nucleic acids', 'Amino acids', 'Fatty acids', 'Monosaccharides'], answer: 'Amino acids' },
+      { id: 'b7-7-3', q: 'Which system in the human body is responsible for producing hormones?', options: ['Nervous system', 'Endocrine system', 'Skeletal system', 'Muscular system'], answer: 'Endocrine system' },
+      { id: 'b7-7-4', q: 'What is the study of heredity and the variation of inherited characteristics called?', options: ['Ecology', 'Anatomy', 'Physiology', 'Genetics'], answer: 'Genetics' },
+      { id: 'b7-7-5', q: 'Which blood cells are primarily responsible for fighting infection?', options: ['Red blood cells', 'White blood cells', 'Platelets', 'Plasma cells'], answer: 'White blood cells' },
+      { id: 'b7-7-6', q: 'What is the role of DNA in a cell?', options: ['To produce energy', 'To store genetic information', 'To transport nutrients', 'To break down waste'], answer: 'To store genetic information' },
+      { id: 'b7-7-7', q: 'What is the term for all the living organisms in a particular area along with their physical environment?', options: ['Population', 'Community', 'Ecosystem', 'Biosphere'], answer: 'Ecosystem' },
+      { id: 'b7-7-8', q: 'Which organ in the human body produces insulin?', options: ['Liver', 'Stomach', 'Pancreas', 'Gallbladder'], answer: 'Pancreas' },
+      { id: 'b7-7-9', q: 'What is the process of cell division that results in two identical daughter cells?', options: ['Meiosis', 'Mitosis', 'Fertilization', 'Budding'], answer: 'Mitosis' },
+      { id: 'b7-7-10', q: 'What is a virus primarily composed of?', options: ['Cells and proteins', 'Genetic material and a protein coat', 'Carbohydrates and lipids', 'Nucleus and cytoplasm'], answer: 'Genetic material and a protein coat' },
+      { id: 'b7-7-11', q: 'What is the name for the "breathing" process in plants where they release water vapor?', options: ['Photosynthesis', 'Respiration', 'Transpiration', 'Guttation'], answer: 'Transpiration' },
+      { id: 'b7-7-12', q: 'Which type of muscle is found in the heart?', options: ['Skeletal muscle', 'Smooth muscle', 'Cardiac muscle', 'Voluntary muscle'], answer: 'Cardiac muscle' },
     ]
   },
   8: {
@@ -138,18 +358,14 @@ export const questionsData: AllQuestions = {
   }
 };
 
-// Function to get questions for a specific grade and subject
-export const getQuestions = (grade: GradeLevel, subject: SubjectName): Question[] => {
-  const gradeQuestions = questionsData[grade];
-  if (gradeQuestions) {
-    const subjectQuestions = gradeQuestions[subject];
+// Function to get questions for a specific class and subject
+export const getQuestions = (classVal: ClassLevel, subject: SubjectName): Question[] => {
+  const classQuestions = questionsData[classVal];
+  if (classQuestions) {
+    const subjectQuestions = classQuestions[subject];
     if (subjectQuestions) {
-      // Return questions directly.
-      // Shuffling of question order and options will be handled client-side to avoid hydration issues.
-      // Slice to ensure we don't mutate original and to adhere to max 30 if more are added later.
       return [...subjectQuestions].slice(0, 30);
     }
   }
-  return []; // Return empty array if no questions found
+  return []; 
 };
-
