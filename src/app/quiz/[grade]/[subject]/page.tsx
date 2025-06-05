@@ -6,9 +6,8 @@
 // This error occurs because Next.js detects conflicting dynamic segment names
 // ([grade] vs [class]) at the same path level.
 //
-// By not providing a default React component export, it's hoped that Next.js
-// will either ignore this path for page routing or raise a different, more manageable
-// error (like "missing default export for page"), rather than the server failing to start
+// By exporting null as the default, it's hoped that Next.js
+// will invalidate this path for page routing, rather than the server failing to start
 // due to the slug name conflict.
 //
 // The correct, active route is /quiz/[class]/[subject]/.
@@ -17,7 +16,5 @@
 
 export const DEPRECATED_ROUTE_MARKER = true;
 
-// No default export that is a React component.
-// If Next.js still requires a default export for files named page.tsx,
-// exporting a non-component value might also achieve the goal of invalidating the page.
-// export default null; // Or some other non-component value
+// Exporting null to invalidate this as a renderable page.
+export default null;
